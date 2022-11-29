@@ -25,28 +25,26 @@ class User:
         else:
             self.is_rewards_member = True
             self.gold_card_points = 200
+            return self
     
     def spend_points(self, amt):
         if amt > self.gold_card_points:
             print("You don't have enough points")
         else:
             self.gold_card_points = self.gold_card_points - amt
+            return self
 
 
 user1 = User("Matt", "Parsons", "mparsons077@gmail.com", 26)
 
-user1.enroll()
+user1.enroll().spend_points(50).display_info()
+print()
 
 user2 = User("Mike", "Connors", "mike@codingdojo.com", 24)
 user3 = User("Kat", "Jarobe", "kat@codingdojo.com", 23)
 user4 = User("Robert", "Anderson", "robert@codingdojo.com", 25)
 
-user1.spend_points(50)
 
-user2.enroll()
-user2.spend_points(80)
-
-user1.display_info()
-user2.display_info()
-user3.display_info()
-user4.display_info()
+user2.enroll().spend_points(80).display_info()
+print()
+user3.spend_points(40)
